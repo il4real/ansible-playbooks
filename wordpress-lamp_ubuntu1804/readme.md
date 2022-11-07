@@ -1,6 +1,12 @@
-# Wordpress on Ubuntu 18.04 LAMP
+# Wordpress on Ubuntu using Terraform deployment with Anslible (LAMP)
 
-This playbook will install a WordPress website on top of a LAMP environment (**L**inux, **A**pache, **M**ySQL and **P**HP) on an Ubuntu 18.04 machine, as explained in the guide on [How to Use Ansible to Set Up Wordpress on Ubuntu 18.04 LAMP](https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-install-and-set-up-wordpress-with-lamp-on-ubuntu-18-04). A virtualhost will be created with the options specified in the `vars/default.yml` variable file.
+This playbook will deploy instance in AWS with Terraform and install a WordPress website on top of a LAMP environment (**L**inux, **A**pache, **M**ySQL and **P**HP) on an Ubuntu machine. A virtualhost will be created with the options specified in the `vars/default.yml` variable file.
+
+## Prerequisites
+
+* AWS account
+* Terraform
+* Ansible host machine
 
 ## Settings
 
@@ -13,11 +19,11 @@ This playbook will install a WordPress website on top of a LAMP environment (**L
 - `http_conf`: The name of the configuration file that will be created within Apache.
 - `http_port`: HTTP port for this virtual host, where `80` is the default. 
 
-## Running this Playbook
 
-Quickstart guide for those already familiar with Ansible:
+## How to? ----->
 
 ### 1. Obtain the playbook
+
 ```shell
 git clone https://github.com/do-community/ansible-playbooks.git
 cd ansible-playbooks/wordpress-lamp_ubuntu1804
@@ -46,10 +52,8 @@ http_conf: "your_domain.conf"
 http_port: "80"
 ```
 
-### 3. Run the Playbook
+### 3. Configure Terraform deployment
 
-```command
-ansible-playbook -l [target] -i [inventory file] -u [remote user] playbook.yml
-```
+Create Security group, VPC, Subnets, Instance and inject code to play playbook.yaml
 
-For more information on how to run this Ansible setup, please check this guide: [How to Use Ansible to Install and Set Up WordPress with LAMP on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-install-and-set-up-wordpress-with-lamp-on-ubuntu-18-04).
+# 4. Enjoy!
